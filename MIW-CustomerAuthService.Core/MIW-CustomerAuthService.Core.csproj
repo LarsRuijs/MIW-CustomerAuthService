@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>MIW_CustomerAuthService.Core</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MIW-CustomerAuthService.Dal\MIW-CustomerAuthService.Dal.csproj" />
+    </ItemGroup>
+
+</Project>
