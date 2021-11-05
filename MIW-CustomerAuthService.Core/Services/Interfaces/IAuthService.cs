@@ -8,6 +8,6 @@ namespace MIW_CustomerAuthService.Core.Services.Interfaces
     {
         Task<string> Login(string email, string password);
 
-        Task<Credentials> Register(string emial, string password);
+        Task<Credentials> Register(string email, string password);
     }
 }

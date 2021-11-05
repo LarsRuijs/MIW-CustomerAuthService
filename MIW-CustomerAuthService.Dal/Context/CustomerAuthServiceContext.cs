@@ -7,11 +7,6 @@ namespace MIW_CustomerAuthService.Dal.Context
     {
         public DbSet<Credentials> Credentials { get; set; }
 
-        public CustomerAuthServiceContext()
-        {
-            
-        }
-
         public CustomerAuthServiceContext(DbContextOptions<CustomerAuthServiceContext> options) : base(options)
         {
             

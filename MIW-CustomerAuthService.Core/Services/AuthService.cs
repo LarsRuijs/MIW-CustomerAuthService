@@ -11,7 +11,7 @@ namespace MIW_CustomerAuthService.Core.Services
             throw new System.NotImplementedException();
         }
 
-        public Task<Credentials> Register(string emial, string password)
+        public Task<Credentials> Register(string email, string password)
         {
             throw new System.NotImplementedException();
         }
