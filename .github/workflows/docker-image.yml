@@ -16,3 +16,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: lars14/miw-customerauthservice
+          tag_with_ref: true
