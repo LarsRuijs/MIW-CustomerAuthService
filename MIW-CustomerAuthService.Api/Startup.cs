@@ -35,7 +35,7 @@ namespace MIW_CustomerAuthService.Api
             string password = Configuration.GetSection("Mysql")["Password"];
             string database = Configuration.GetSection("Mysql")["Database"];
             string connectionString = $"server={server};user={username};password={password};database={database}";
-            services.AddDbContext<CustomerAuthServiceContext>(builder =>
+            services.AddDbContext<AuthContext>(builder =>
                 builder.UseMySQL(connectionString));
             
             services.AddTransient<IAuthService, AuthService>();
