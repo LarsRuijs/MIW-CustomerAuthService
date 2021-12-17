@@ -6,8 +6,8 @@ namespace MIW_CustomerAuthService.Core.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<string> Login(string email, string password);
+        Task<string> Login(Credentials credentials);
 
-        Task<Credentials> Register(string email, string password);
+        Task<bool> Register(Credentials credentials);
     }
 }

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "MIW_CustomerAuthService.Grpc";
+
+service AuthService {
+  rpc Register(CredentialsMessage) returns (RegisterResponse);
+  rpc Login(CredentialsMessage) returns (LoginResponse);
+}
+
+message CredentialsMessage {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterResponse {
+  bool registered = 1;
+}
+
+message LoginResponse {
+  string token = 1;
+}
