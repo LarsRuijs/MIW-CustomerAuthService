@@ -20,22 +20,34 @@ namespace MIW_CustomerAuthService.Api
     {
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            CurrentEnvironment = env;
         }
         
+        private IWebHostEnvironment CurrentEnvironment{ get; set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            string server = Configuration.GetSection("Mysql")["Server"];
-            string username = Configuration.GetSection("Mysql")["Username"];
-            string password = Configuration.GetSection("Mysql")["Password"];
-            string database = Configuration.GetSection("Mysql")["Database"];
-            string connectionString = $"server={server};user={username};password={password};database={database}";
-            services.AddDbContext<AuthContext>(builder =>
-                builder.UseMySQL(connectionString));
+            // if (CurrentEnvironment.IsDevelopment())
+            // {
+            //     string server = Configuration.GetSection("Mysql")["Server"];
+            //     string username = Configuration.GetSection("Mysql")["Username"];
+            //     string password = Configuration.GetSection("Mysql")["Password"];
+            //     string database = Configuration.GetSection("Mysql")["Database"];
+            //     string connectionString = $"server={server};user={username};password={password};database={database}";
+            //     services.AddDbContext<AuthContext>(builder =>
+            //         builder.UseMySQL(connectionString));
+            // }
+            // else
+            // {
+                services.AddDbContext<AuthContext>(options => 
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureDB")));
+            // }
+            
             
             services.AddTransient<IAuthService, AuthService>();
             
